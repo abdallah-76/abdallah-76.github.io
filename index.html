@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abdallah Maammar — Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+--c1:#0a0a0f;--c2:#12121a;--c3:#1a1a2e;
+--acc:#5b8dee;--acc2:#a78bfa;--acc3:#38e8c0;
+--txt:#e8e8f0;--txt2:#9090a8;--txt3:#6060780;
+--mono:'DM Sans',sans-serif;--head:'Syne',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{background:var(--c1);color:var(--txt);font-family:var(--mono);overflow-x:hidden;line-height:1.6}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;background:rgba(10,10,15,0.85);backdrop-filter:blur(16px);border-bottom:1px solid rgba(91,141,238,0.12)}
+.nav-logo{font-family:var(--head);font-weight:800;font-size:1.1rem;letter-spacing:-0.5px;background:linear-gradient(135deg,var(--acc),var(--acc2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.nav-links{display:flex;gap:1.5rem}
+.nav-links a{text-decoration:none;color:var(--txt2);font-size:0.85rem;font-weight:500;letter-spacing:0.05em;text-transform:uppercase;transition:color 0.2s}
+.nav-links a:hover{color:var(--acc)}
+.nav-cta{background:linear-gradient(135deg,var(--acc),var(--acc2));color:#fff;padding:0.45rem 1.1rem;border-radius:6px;text-decoration:none;font-size:0.82rem;font-weight:600;letter-spacing:0.04em;transition:opacity 0.2s}
+.nav-cta:hover{opacity:0.85}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;padding:6rem 2rem 4rem}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% -20%,rgba(91,141,238,0.18) 0%,transparent 60%),radial-gradient(ellipse 50% 50% at 80% 80%,rgba(167,139,250,0.1) 0%,transparent 50%)}
+.grid-lines{position:absolute;inset:0;background-image:linear-gradient(rgba(91,141,238,0.05) 1px,transparent 1px),linear-gradient(90deg,rgba(91,141,238,0.05) 1px,transparent 1px);background-size:60px 60px}
+.hero-content{position:relative;max-width:900px;text-align:center;animation:fadeUp 0.8s ease both}
+.hero-badge{display:inline-flex;align-items:center;gap:0.5rem;background:rgba(91,141,238,0.1);border:1px solid rgba(91,141,238,0.3);padding:0.4rem 1rem;border-radius:50px;font-size:0.8rem;color:var(--acc);font-weight:500;letter-spacing:0.08em;margin-bottom:1.5rem;text-transform:uppercase}
+.dot{width:6px;height:6px;background:var(--acc3);border-radius:50%;animation:pulse 2s infinite}
+h1{font-family:var(--head);font-size:clamp(2.8rem,6vw,5rem);font-weight:800;line-height:1.05;letter-spacing:-2px;margin-bottom:1.2rem}
+h1 .grad{background:linear-gradient(135deg,var(--acc),var(--acc2),var(--acc3));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-sub{font-size:clamp(1rem,2vw,1.2rem);color:var(--txt2);max-width:600px;margin:0 auto 2.5rem;font-weight:300;line-height:1.7}
+.hero-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.btn-primary{background:linear-gradient(135deg,var(--acc),var(--acc2));color:#fff;padding:0.75rem 2rem;border-radius:8px;text-decoration:none;font-weight:600;font-size:0.9rem;transition:transform 0.2s,box-shadow 0.2s}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(91,141,238,0.35)}
+.btn-outline{border:1px solid rgba(91,141,238,0.4);color:var(--acc);padding:0.75rem 2rem;border-radius:8px;text-decoration:none;font-weight:600;font-size:0.9rem;transition:all 0.2s;background:transparent}
+.btn-outline:hover{background:rgba(91,141,238,0.08);border-color:var(--acc)}
+.hero-stats{display:flex;gap:3rem;justify-content:center;margin-top:4rem;padding-top:3rem;border-top:1px solid rgba(255,255,255,0.07);flex-wrap:wrap}
+.stat-item{text-align:center}
+.stat-num{font-family:var(--head);font-size:2rem;font-weight:800;background:linear-gradient(135deg,var(--acc),var(--acc2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.stat-label{font-size:0.8rem;color:var(--txt2);text-transform:uppercase;letter-spacing:0.08em;margin-top:0.2rem}
+
+/* SECTIONS */
+section{padding:6rem 2rem}
+.container{max-width:1000px;margin:0 auto}
+.section-tag{font-size:0.75rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--acc);margin-bottom:0.75rem;display:flex;align-items:center;gap:0.5rem}
+.section-tag::before{content:'';display:block;width:20px;height:1px;background:var(--acc)}
+.section-title{font-family:var(--head);font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;letter-spacing:-1px;line-height:1.1;margin-bottom:1rem}
+.section-sub{color:var(--txt2);font-size:1rem;max-width:550px;line-height:1.7;margin-bottom:3.5rem}
+
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.about-avatar{width:200px;height:200px;border-radius:20px;background:linear-gradient(135deg,var(--acc),var(--acc2));display:flex;align-items:center;justify-content:center;font-family:var(--head);font-size:4rem;font-weight:800;color:#fff;margin-bottom:1.5rem;position:relative}
+.about-avatar::after{content:'';position:absolute;inset:-3px;border-radius:23px;background:linear-gradient(135deg,var(--acc),var(--acc2));z-index:-1;filter:blur(12px);opacity:0.4}
+.about-info p{color:var(--txt2);line-height:1.8;margin-bottom:1rem}
+.about-tags{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:1.5rem}
+.tag{background:rgba(91,141,238,0.1);border:1px solid rgba(91,141,238,0.2);padding:0.3rem 0.8rem;border-radius:50px;font-size:0.78rem;color:var(--acc);font-weight:500}
+.about-cards{display:grid;gap:1rem}
+.about-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:12px;padding:1.2rem 1.5rem;transition:border-color 0.2s}
+.about-card:hover{border-color:rgba(91,141,238,0.3)}
+.about-card-icon{font-size:1.2rem;margin-bottom:0.5rem}
+.about-card h4{font-family:var(--head);font-weight:700;font-size:0.9rem;margin-bottom:0.3rem}
+.about-card p{font-size:0.83rem;color:var(--txt2);line-height:1.5}
+
+/* SKILLS */
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.5rem}
+.skill-category{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:16px;padding:1.8rem;transition:all 0.3s}
+.skill-category:hover{border-color:rgba(91,141,238,0.3);transform:translateY(-3px)}
+.skill-cat-header{display:flex;align-items:center;gap:0.75rem;margin-bottom:1.5rem}
+.skill-cat-icon{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem}
+.skill-cat-icon.blue{background:rgba(91,141,238,0.15)}
+.skill-cat-icon.purple{background:rgba(167,139,250,0.15)}
+.skill-cat-icon.teal{background:rgba(56,232,192,0.15)}
+.skill-cat-icon.amber{background:rgba(251,191,36,0.15)}
+.skill-cat-title{font-family:var(--head);font-weight:700;font-size:0.95rem}
+.skill-item{margin-bottom:0.9rem}
+.skill-label{display:flex;justify-content:space-between;font-size:0.82rem;margin-bottom:0.35rem;color:var(--txt2)}
+.skill-label span:last-child{color:var(--acc);font-weight:500}
+.skill-bar{height:4px;background:rgba(255,255,255,0.07);border-radius:10px;overflow:hidden}
+.skill-fill{height:100%;border-radius:10px;background:linear-gradient(90deg,var(--acc),var(--acc2));transition:width 1s ease}
+
+/* PROJECTS */
+.projects-grid{display:grid;gap:1.5rem}
+.project-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:16px;padding:2rem;display:grid;grid-template-columns:auto 1fr;gap:1.5rem;align-items:start;transition:all 0.3s;cursor:pointer}
+.project-card:hover{border-color:rgba(91,141,238,0.3);transform:translateY(-2px);background:rgba(91,141,238,0.04)}
+.project-num{font-family:var(--head);font-size:3rem;font-weight:800;color:rgba(91,141,238,0.15);line-height:1;min-width:60px}
+.project-title{font-family:var(--head);font-size:1.15rem;font-weight:700;margin-bottom:0.4rem}
+.project-desc{color:var(--txt2);font-size:0.88rem;line-height:1.7;margin-bottom:1rem}
+.project-meta{display:flex;gap:0.75rem;flex-wrap:wrap;margin-bottom:0.75rem}
+.project-duration{font-size:0.75rem;color:var(--acc3);background:rgba(56,232,192,0.1);padding:0.2rem 0.6rem;border-radius:50px;border:1px solid rgba(56,232,192,0.2)}
+.tech-tags{display:flex;flex-wrap:wrap;gap:0.4rem}
+.tech-tag{background:rgba(167,139,250,0.1);border:1px solid rgba(167,139,250,0.2);padding:0.2rem 0.6rem;border-radius:50px;font-size:0.73rem;color:var(--acc2)}
+
+/* EXPERIENCE */
+.timeline{position:relative;padding-left:2rem}
+.timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,var(--acc),transparent)}
+.timeline-item{position:relative;padding-bottom:3rem}
+.timeline-dot{position:absolute;left:-2.35rem;top:0.3rem;width:12px;height:12px;border-radius:50%;background:var(--acc);box-shadow:0 0 0 3px rgba(91,141,238,0.2),0 0 16px rgba(91,141,238,0.4)}
+.timeline-date{font-size:0.78rem;color:var(--acc);font-weight:600;letter-spacing:0.05em;text-transform:uppercase;margin-bottom:0.5rem}
+.timeline-title{font-family:var(--head);font-size:1.1rem;font-weight:700;margin-bottom:0.2rem}
+.timeline-company{color:var(--acc2);font-size:0.88rem;font-weight:500;margin-bottom:0.75rem}
+.timeline-items{list-style:none;display:flex;flex-direction:column;gap:0.5rem}
+.timeline-items li{color:var(--txt2);font-size:0.87rem;display:flex;align-items:flex-start;gap:0.5rem}
+.timeline-items li::before{content:'→';color:var(--acc);flex-shrink:0;margin-top:0.05rem}
+.edu-cards{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1rem}
+.edu-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:12px;padding:1.5rem}
+.edu-card h4{font-family:var(--head);font-weight:700;font-size:0.95rem;margin-bottom:0.4rem}
+.edu-card p{font-size:0.82rem;color:var(--txt2);line-height:1.5}
+.edu-badge{display:inline-block;background:rgba(56,232,192,0.1);border:1px solid rgba(56,232,192,0.2);color:var(--acc3);font-size:0.72rem;padding:0.2rem 0.6rem;border-radius:50px;margin-top:0.5rem;font-weight:500}
+
+/* CERTIFICATIONS */
+.cert-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1rem}
+.cert-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:12px;padding:1.5rem;display:flex;align-items:flex-start;gap:1rem}
+.cert-icon{width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,var(--acc),var(--acc2));flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1.1rem}
+.cert-text h4{font-weight:600;font-size:0.9rem;margin-bottom:0.25rem}
+.cert-text p{font-size:0.8rem;color:var(--txt2)}
+
+/* CONTACT */
+.contact-section{background:rgba(91,141,238,0.04);border:1px solid rgba(91,141,238,0.12);border-radius:24px;padding:4rem;text-align:center}
+.contact-links{display:flex;justify-content:center;flex-wrap:wrap;gap:1rem;margin-top:2.5rem}
+.contact-link{display:flex;align-items:center;gap:0.6rem;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);padding:0.7rem 1.4rem;border-radius:10px;text-decoration:none;color:var(--txt);font-size:0.88rem;font-weight:500;transition:all 0.2s}
+.contact-link:hover{border-color:rgba(91,141,238,0.4);color:var(--acc);transform:translateY(-2px)}
+.contact-link svg{width:18px;height:18px;opacity:0.7}
+
+/* FOOTER */
+footer{text-align:center;padding:2rem;border-top:1px solid rgba(255,255,255,0.06);font-size:0.8rem;color:var(--txt2)}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.5;transform:scale(1.3)}}
+
+.animate-on-scroll{opacity:0;transform:translateY(20px);transition:opacity 0.6s ease,transform 0.6s ease}
+.animate-on-scroll.visible{opacity:1;transform:translateY(0)}
+
+@media(max-width:768px){
+  .about-grid{grid-template-columns:1fr}
+  .edu-cards{grid-template-columns:1fr}
+  .project-card{grid-template-columns:1fr}
+  .project-num{font-size:1.5rem}
+  .contact-section{padding:2rem 1.5rem}
+  .nav-links{display:none}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">AM.</div>
+  <div class="nav-links">
+    <a href="#about">À propos</a>
+    <a href="#skills">Compétences</a>
+    <a href="#projects">Projets</a>
+    <a href="#experience">Parcours</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <a href="#contact" class="nav-cta">Me contacter</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="grid-lines"></div>
+  <div class="hero-content">
+    <div class="hero-badge">
+      <span class="dot"></span>
+      Étudiant en Informatique · Sorbonne 2026
+    </div>
+    <h1>
+      Abdallah<br>
+      <span class="grad">Maammar</span>
+    </h1>
+    <p class="hero-sub">Étudiant en informatique passionné par les systèmes, les réseaux et l'automatisation. Je construis des solutions robustes, pensées pour durer.</p>
+    <div class="hero-btns">
+      <a href="#projects" class="btn-primary">Voir mes projets</a>
+      <a href="#contact" class="btn-outline">Me contacter</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-num">7+</div>
+        <div class="stat-label">Projets réalisés</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">8+</div>
+        <div class="stat-label">Langages maîtrisés</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">3</div>
+        <div class="stat-label">Langues parlées</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">C1</div>
+        <div class="stat-label">Anglais certifié EFSET</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="animate-on-scroll">
+        <div class="about-avatar">AM</div>
+        <div class="section-tag">À propos</div>
+        <h2 class="section-title">Curieux par<br>nature, rigoureux<br>par discipline.</h2>
+        <div class="about-tags">
+          <span class="tag">Linux & Réseaux</span>
+          <span class="tag">Python & C#</span>
+          <span class="tag">Automatisation</span>
+          <span class="tag">Full Stack</span>
+          
+        </div>
+      </div>
+      <div class="animate-on-scroll" style="transition-delay:0.15s">
+        <p style="color:var(--txt2);line-height:1.8;margin-bottom:1rem;font-size:0.95rem">Étudiant en 3ème année de Licence Informatique à l'Université de Bretagne Occidentale, admis en Master Réseaux, Systèmes & Cybersécurité à la Sorbonne, je combine une formation théorique solide avec une expérience pratique en environnement professionnel.</p>
+        <p style="color:var(--txt2);line-height:1.8;margin-bottom:1.5rem;font-size:0.95rem">Actuellement en stage chez NeoLedge (Lille), je développe des applications C#, manipule des automates industriels et participe à des projets techniques complexes. Mon moteur : transformer des idées en solutions concrètes.</p>
+        <div class="about-cards">
+          <div class="about-card">
+            <div class="about-card-icon">🎓</div>
+            <h4>Formation d'excellence</h4>
+            <p>Licence → Master Sorbonne (Réseaux & Cybersécurité) en alternance</p>
+          </div>
+          <div class="about-card">
+            <div class="about-card-icon">🌍</div>
+            <h4>Profil international</h4>
+            <p>Trilingue : Arabe natif · Français C1 · Anglais C1 (EFSET certifié). Sélectionné en L2 pour un programme d'échange international — semestre entier suivi et évalué en anglais.</p>
+          </div>
+          <div class="about-card">
+            <div class="about-card-icon">⚡</div>
+            <h4>Mobilité nationale</h4>
+            <p>Ouvert à toute la France · Permis & véhiculé · Expérience internationale</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" style="background:rgba(0,0,0,0.3)">
+  <div class="container">
+    <div class="animate-on-scroll">
+      <div class="section-tag">Compétences</div>
+      <h2 class="section-title">Un profil<br>polyvalent & technique.</h2>
+      <p class="section-sub">Des fondations solides en développement logiciel, enrichies par une maîtrise des systèmes et réseaux Linux.</p>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-category animate-on-scroll">
+        <div class="skill-cat-header">
+          <div class="skill-cat-icon blue">💻</div>
+          <div class="skill-cat-title">Langages</div>
+        </div>
+        <div class="skill-item"><div class="skill-label"><span>Python</span><span>Avancé</span></div><div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div></div>
+        <div class="skill-item"><div class="skill-label"><span>C#</span><span>Intermédiaire+</span></div><div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div></div>
+        <div class="skill-item"><div class="skill-label"><span>Java</span><span>Intermédiaire+</span></div><div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div></div>
+        <div class="skill-item"><div class="skill-label"><span>C</span><span>Intermédiaire</span></div><div class="skill-bar"><div class="skill-fill" style="width:70%"></div></div></div>
+        <div class="skill-item"><div class="skill-label"><span>JavaScript</span><span>Intermédiaire</span></div><div class="skill-bar"><div class="skill-fill" style="width:68%"></div></div></div>
+        <div class="skill-item"><div class="skill-label"><span>SQL / PHP / VB</span><span>Fonctionnel</span></div><div class="skill-bar"><div class="skill-fill" style="width:60%"></div></div></div>
+      </div>
+      <div class="skill-category animate-on-scroll" style="transition-delay:0.1s">
+        <div class="skill-cat-header">
+          <div class="skill-cat-icon teal">🌐</div>
+          <div class="skill-cat-title">Web & Bases de données</div>
+        </div>
+        <div class="skill-item"><div class="skill-label"><span>HTML5 / CSS3</span><span>Avancé</span></div><div class="skill-bar"><div class="skill-fill" style="width:82%;background:linear-gradient(90deg,var(--acc3),#2dd4bf)"></div></div></div>
+        <div class="skill-item"><div class="skill-label"><span>PHP dynamique</span><span>Intermédiaire</span></div><div class="skill-bar"><div class="skill-fill" style="width:68%;background:linear-gradient(90deg,var(--acc3),#2dd4bf)"></div></div></div>
+        <div class="skill-item"><div class="skill-label"><span>MySQL / phpMyAdmin</span><span>Intermédiaire</span></div><div class="skill-bar"><div class="skill-fill" style="width:70%;background:linear-gradient(90deg,var(--acc3),#2dd4bf)"></div></div></div>
+        <div style="margin-top:1.5rem">
+          <div class="skill-cat-header" style="margin-bottom:1rem">
+            <div class="skill-cat-icon amber">🛠</div>
+            <div class="skill-cat-title">Outils</div>
+          </div>
+          <div class="about-tags">
+            <span class="tag" style="color:var(--acc3);border-color:rgba(56,232,192,0.3);background:rgba(56,232,192,0.08)">Git / GitHub</span>
+            <span class="tag" style="color:var(--acc3);border-color:rgba(56,232,192,0.3);background:rgba(56,232,192,0.08)">Linux</span>
+            <span class="tag" style="color:var(--acc3);border-color:rgba(56,232,192,0.3);background:rgba(56,232,192,0.08)">VS Code</span>
+            <span class="tag" style="color:var(--acc3);border-color:rgba(56,232,192,0.3);background:rgba(56,232,192,0.08)">JavaFX</span>
+            <span class="tag" style="color:var(--acc3);border-color:rgba(56,232,192,0.3);background:rgba(56,232,192,0.08)">JUnit</span>
+            <span class="tag" style="color:var(--acc3);border-color:rgba(56,232,192,0.3);background:rgba(56,232,192,0.08)">Bash / Pthreads</span>
+            <span class="tag" style="color:var(--acc3);border-color:rgba(56,232,192,0.3);background:rgba(56,232,192,0.08)">RPC/SunRPC</span>
+          </div>
+        </div>
+      </div>
+      <div class="skill-category animate-on-scroll" style="transition-delay:0.2s">
+        <div class="skill-cat-header">
+          <div class="skill-cat-icon purple">✨</div>
+          <div class="skill-cat-title">Soft Skills</div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:0.85rem">
+          <div style="display:flex;align-items:center;gap:0.75rem"><div style="width:8px;height:8px;border-radius:50%;background:var(--acc2);flex-shrink:0"></div><div><div style="font-size:0.88rem;font-weight:500">Rigueur & Autonomie</div><div style="font-size:0.78rem;color:var(--txt2)">Travail structuré, livraisons fiables</div></div></div>
+          <div style="display:flex;align-items:center;gap:0.75rem"><div style="width:8px;height:8px;border-radius:50%;background:var(--acc2);flex-shrink:0"></div><div><div style="font-size:0.88rem;font-weight:500">Esprit d'équipe</div><div style="font-size:0.78rem;color:var(--txt2)">Projets collaboratifs, communication claire</div></div></div>
+          <div style="display:flex;align-items:center;gap:0.75rem"><div style="width:8px;height:8px;border-radius:50%;background:var(--acc2);flex-shrink:0"></div><div><div style="font-size:0.88rem;font-weight:500">Adaptabilité</div><div style="font-size:0.78rem;color:var(--txt2)">Passage rapide entre langages et contextes</div></div></div>
+          <div style="display:flex;align-items:center;gap:0.75rem"><div style="width:8px;height:8px;border-radius:50%;background:var(--acc2);flex-shrink:0"></div><div><div style="font-size:0.88rem;font-weight:500">Curiosité technique</div><div style="font-size:0.78rem;color:var(--txt2)">Veille constante, apprenant rapide</div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="container">
+    <div class="animate-on-scroll">
+      <div class="section-tag">Projets</div>
+      <h2 class="section-title">Ce que j'ai<br>construit.</h2>
+      <p class="section-sub">Des projets variés qui couvrent le développement web, les systèmes distribués, la programmation parallèle et les applications desktop.</p>
+    </div>
+    <div class="projects-grid">
+      <div class="project-card animate-on-scroll">
+        <div class="project-num">01</div>
+        <div>
+          <div class="project-meta">
+            <span class="project-duration">~3 mois</span>
+          </div>
+          <div class="project-title">Application de Réservation — Base Nautique</div>
+          <div class="project-desc">Plateforme web complète de réservation de créneaux pour une base nautique. Gestion de deux rôles (client/personnel), module Q&A interactif, validation des demandes et suivi en temps réel des réservations. Une solution full stack pensée pour l'usage terrain.</div>
+          <div class="tech-tags"><span class="tech-tag">HTML/CSS/JS</span><span class="tech-tag">PHP</span><span class="tech-tag">MySQL</span></div>
+        </div>
+      </div>
+      <div class="project-card animate-on-scroll" style="transition-delay:0.05s">
+        <div class="project-num">02</div>
+        <div>
+          <div class="project-meta"><span class="project-duration">~2 mois</span></div>
+          <div class="project-title">Pizza del Arte — Gestion de Pizzeria</div>
+          <div class="project-desc">Application Java orientée objet pour la gestion complète d'une pizzeria : catalogue de pizzas, prise de commandes, calcul des bénéfices. Code testé avec JUnit, documenté via Javadoc et conforme aux normes Checkstyle. Qualité professionnelle.</div>
+          <div class="tech-tags"><span class="tech-tag">Java</span><span class="tech-tag">JavaFX</span><span class="tech-tag">JUnit</span><span class="tech-tag">Git</span></div>
+        </div>
+      </div>
+      <div class="project-card animate-on-scroll" style="transition-delay:0.1s">
+        <div class="project-num">03</div>
+        <div>
+          <div class="project-meta"><span class="project-duration">~6 semaines</span></div>
+          <div class="project-title">InfoScreen — Actualités Transports</div>
+          <div class="project-desc">Site web de publication d'actualités transports avec deux rôles distincts (rédacteur/gestionnaire). Gestion de la modération, publication et affichage en temps réel. Interface pensée pour une utilisation en environnement public (type panneau d'information).</div>
+          <div class="tech-tags"><span class="tech-tag">HTML/CSS/JS</span><span class="tech-tag">PHP</span><span class="tech-tag">SQL</span></div>
+        </div>
+      </div>
+      <div class="project-card animate-on-scroll" style="transition-delay:0.15s">
+        <div class="project-num">04</div>
+        <div>
+          <div class="project-meta"><span class="project-duration">~4 semaines</span></div>
+          <div class="project-title">Tableur Léger Monoplan</div>
+          <div class="project-desc">Tableur fonctionnel en C avec 130 cellules, évaluation de formules en notation polonaise inverse (RPN), recalcul automatique des dépendances et persistance XML. Un projet bas niveau qui démontre la maîtrise des algorithmes et des structures de données.</div>
+          <div class="tech-tags"><span class="tech-tag">C</span><span class="tech-tag">XML</span></div>
+        </div>
+      </div>
+      <div class="project-card animate-on-scroll" style="transition-delay:0.2s">
+        <div class="project-num">05</div>
+        <div>
+          <div class="project-meta"><span class="project-duration">~2 semaines</span></div>
+          <div class="project-title">Crible d'Ératosthène Parallélisé</div>
+          <div class="project-desc">Implémentation parallèle du crible d'Ératosthène sous Linux avec POSIX Threads. Analyse comparative des performances CPU/réel en fonction du nombre de threads. Exploration de la concurrence et de l'optimisation système en conditions réelles.</div>
+          <div class="tech-tags"><span class="tech-tag">C</span><span class="tech-tag">Bash</span><span class="tech-tag">POSIX Threads</span><span class="tech-tag">Linux</span></div>
+        </div>
+      </div>
+      <div class="project-card animate-on-scroll" style="transition-delay:0.25s">
+        <div class="project-num">06</div>
+        <div>
+          <div class="project-meta"><span class="project-duration">~3 semaines</span></div>
+          <div class="project-title">Multiplayer Pixel Coloring Game</div>
+          <div class="project-desc">Jeu multijoueur de coloration collaborative de pixels en temps réel, via une architecture client-serveur TCP. Plusieurs clients connectés simultanément voient les modifications en direct. Démontre la maîtrise des sockets et de la programmation réseau.</div>
+          <div class="tech-tags"><span class="tech-tag">Java</span><span class="tech-tag">Swing</span><span class="tech-tag">TCP Sockets</span></div>
+        </div>
+      </div>
+      <div class="project-card animate-on-scroll" style="transition-delay:0.3s">
+        <div class="project-num">07</div>
+        <div>
+          <div class="project-meta"><span class="project-duration">~2 semaines</span></div>
+          <div class="project-title">HelloWatt — Suivi Énergétique RPC</div>
+          <div class="project-desc">Service de suivi de consommation énergétique reposant sur une architecture client-serveur RPC (SunRPC/rpcgen). Démontre la maîtrise des protocoles d'appel de procédures distantes et de la programmation système distribuée en C.</div>
+          <div class="tech-tags"><span class="tech-tag">C</span><span class="tech-tag">RPC/SunRPC</span></div>
+        </div>
+      </div>
+      <div class="project-card animate-on-scroll" style="transition-delay:0.35s">
+        <div class="project-num">08</div>
+        <div>
+          <div class="project-meta"><span class="project-duration">~3 mois</span></div>
+          <div class="project-title">Jeu Sokoban — Puzzle en Terminal</div>
+          <div class="project-desc">Implémentation complète du jeu Sokoban en Python avec gestion de niveaux, logique de déplacement des caisses, système d'annulation de coups et interface terminal colorée. Application des principes de la programmation orientée objet et gestion d'événements clavier.</div>
+          <div class="tech-tags"><span class="tech-tag">Python</span><span class="tech-tag">POO</span><span class="tech-tag">Terminal UI</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" style="background:rgba(0,0,0,0.3)">
+  <div class="container">
+    <div class="animate-on-scroll">
+      <div class="section-tag">Parcours</div>
+      <h2 class="section-title">Expérience &<br>Formation.</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start">
+      <div class="animate-on-scroll">
+        <h3 style="font-family:var(--head);font-weight:700;font-size:1.05rem;margin-bottom:2rem;color:var(--txt2);text-transform:uppercase;letter-spacing:0.08em">Expérience professionnelle</h3>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date">Avr. 2026 — Présent</div>
+            <div class="timeline-title">Stage en Informatique</div>
+            <div class="timeline-company">NeoLedge · Lille, France</div>
+            <ul class="timeline-items">
+              <li>Développement et maintenance d'applications C# en environnement industriel</li>
+              <li>Manipulation d'automates programmables industriels (API)</li>
+              <li>Participation active à des projets techniques complexes</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="animate-on-scroll" style="transition-delay:0.15s">
+        <h3 style="font-family:var(--head);font-weight:700;font-size:1.05rem;margin-bottom:2rem;color:var(--txt2);text-transform:uppercase;letter-spacing:0.08em">Formation</h3>
+        <div class="edu-cards" style="grid-template-columns:1fr">
+          <div class="edu-card">
+            <div style="font-size:0.75rem;color:var(--acc);font-weight:600;letter-spacing:0.05em;margin-bottom:0.5rem">EN COURS · 2023 – 2026</div>
+            <h4>Licence Informatique</h4>
+            <p>Sciences de l'Ingénieur · Université de Bretagne Occidentale</p>
+          </div>
+          <div class="edu-card" style="border-color:rgba(91,141,238,0.25)">
+            <div style="font-size:0.75rem;color:var(--acc2);font-weight:600;letter-spacing:0.05em;margin-bottom:0.5rem">ADMIS · 2026 – 2028</div>
+            <h4>Master Informatique — Réseaux, Systèmes & Cybersécurité</h4>
+            <p>Sorbonne Université · Paris</p>
+            <span class="edu-badge">Sous réserve de contrat d'alternance</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- CERTIFICATIONS -->
+    <div style="margin-top:4rem" class="animate-on-scroll">
+      <h3 style="font-family:var(--head);font-weight:700;font-size:1.05rem;margin-bottom:1.5rem;color:var(--txt2);text-transform:uppercase;letter-spacing:0.08em">Certifications</h3>
+      <div class="cert-grid">
+        <div class="cert-card">
+          <div class="cert-icon">🏆</div>
+          <div class="cert-text"><h4>EFSET — Anglais C1</h4><p>Compréhension écrite & orale · Certifié</p></div>
+        </div>
+        <div class="cert-card">
+          <div class="cert-icon">🧠</div>
+          <div class="cert-text"><h4>Certificat d'excellence</h4><p>Mathématiques & Logique · Camp académique de compétition</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="contact-section animate-on-scroll">
+      <div class="section-tag" style="justify-content:center">Contact</div>
+      <h2 class="section-title" style="font-size:clamp(1.8rem,4vw,2.5rem)">Prêt à collaborer ?</h2>
+      <p style="color:var(--txt2);max-width:480px;margin:1rem auto 0;line-height:1.7">Étudiant passionné, ouvert à toute opportunité en informatique. Développement, systèmes, réseaux — construisons quelque chose ensemble.</p>
+      <div class="contact-links">
+        <a href="mailto:maamarabdallah7@gmail.com" class="contact-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          maamarabdallah7@gmail.com
+        </a>
+        <a href="tel:0774334744" class="contact-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 1h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+          07 74 33 47 44
+        </a>
+        <a href="https://github.com/abdallah76" class="contact-link" target="_blank">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
+          GitHub
+        </a>
+        <a href="https://www.linkedin.com/in/abdallah-maammar-930860326/" class="contact-link" target="_blank">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          LinkedIn
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Abdallah Maammar · Fait avec passion · Disponible pour alternance</p>
+</footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if(e.isIntersecting) {
+      e.target.classList.add('visible');
+    }
+  });
+}, {threshold: 0.1, rootMargin: '0px 0px -40px 0px'});
+document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
